@@ -8,14 +8,14 @@ namespace EmployeeWage
 {
     internal class Employee
     {
-        const int FullTimePresent = 0, PartTimePresent = 1, WagePerHr = 20, TotalWorkingDays = 20;
+        const int FullTimePresent = 0, PartTimePresent = 1, WagePerHr = 20, NumberOfWorkingDays = 20, MaxHrsInMonths = 100;
         public void MonthlyWage()
         {
 
-            int Emphrs = 0, Empwage = 0, TotalEmpwage = 0;
-
-            for (int day = 0; day < TotalWorkingDays; day++)
+            int Emphrs = 0, totalEmphrs = 0, TotaWorkingDays = 0;
+            while (totalEmphrs<=MaxHrsInMonths && TotaWorkingDays<NumberOfWorkingDays)
             {
+                TotaWorkingDays++;
                 Random random = new Random();
                 int result = random.Next(0, 3);
                 switch (result)
@@ -23,21 +23,19 @@ namespace EmployeeWage
                     case FullTimePresent:
                         Emphrs = 8;
                         break;
-                    case PartTimePresent:
+                        case PartTimePresent:
                         Emphrs = 4;
                         break;
-                    default:
+                        default:
                         Emphrs = 0;
                         break;
                 }
-                Empwage = Emphrs * WagePerHr;
-                TotalEmpwage += Empwage;
-                Console.WriteLine("Emp Wage: " + Empwage);
+                totalEmphrs += Emphrs;
+                Console.WriteLine("Days:" +TotaWorkingDays+ "Emphrs:" +Emphrs);
             }
-            Console.WriteLine("Total Emp wage is:" +TotalEmpwage);
-
-            
-            Console.ReadLine();
+            int totalEmpwage = totalEmphrs * WagePerHr;
+                Console.WriteLine("Total Emp Wage: " + totalEmpwage);
+                Console.ReadLine();
         }
     }
 }
