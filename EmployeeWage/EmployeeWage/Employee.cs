@@ -8,15 +8,23 @@ namespace EmployeeWage
 {
     internal class Employee
     {
-        int Present = 0, TotalWorkingHrs = 8, WagePerHr = 20;
-        public void EmployeeWage()
+        const int FullTimePresent = 0, PartTimePresent = 1, PartTimeHrs=4, WagePerHr = 20, Emphrs = 0;
+        public void PartTimeWage()
         {
             Random random = new Random();
             int result = random.Next(0, 2);
             if (result == 0)
             {
-                Console.WriteLine("Employee is Present");
-                int Totalwage = TotalWorkingHrs * WagePerHr;
+                Console.WriteLine("Employee is Present For Fulltime");
+                int Emphrs = 8;
+                int Totalwage = Emphrs * WagePerHr;
+                Console.WriteLine("Wage is " + Totalwage);
+            }
+            else if (result == 1)
+                {
+                Console.WriteLine("Employee is Present For Part Time");
+                int Emhrs = 4;
+                int Totalwage = Emhrs * WagePerHr;
                 Console.WriteLine("Wage is " + Totalwage);
             }
             else
