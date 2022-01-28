@@ -8,31 +8,31 @@ namespace EmployeeWage
 {
     internal class Employee
     {
-        const int FullTimePresent = 0, PartTimePresent = 1, PartTimeHrs=4, WagePerHr = 20, Emphrs = 0;
+        const int FullTimePresent = 0, PartTimePresent = 1,WagePerHr = 20;
         public void PartTimeWage()
         {
             Random random = new Random();
             int result = random.Next(0, 2);
-            if (result == 0)
+            int Emphrs = 0;
+            int Empwage = 0;
+            switch (result)
             {
-                Console.WriteLine("Employee is Present For Fulltime");
-                int Emphrs = 8;
-                int Totalwage = Emphrs * WagePerHr;
-                Console.WriteLine("Wage is " + Totalwage);
+                case FullTimePresent:
+                     Emphrs = 8;
+                    break;
+                case PartTimePresent:
+
+                    Emphrs = 4;
+                    break;
+                default:
+                    {
+                        Emphrs = 0;
+                        break;
+                    }
+                    Empwage = Emphrs * WagePerHr;
+                    Console.WriteLine("Emp Wage: " + Empwage);
+                    Console.ReadLine();
             }
-            else if (result == 1)
-                {
-                Console.WriteLine("Employee is Present For Part Time");
-                int Emhrs = 4;
-                int Totalwage = Emhrs * WagePerHr;
-                Console.WriteLine("Wage is " + Totalwage);
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-            }
-            Console.ReadLine();
         }
     }
 }
-
