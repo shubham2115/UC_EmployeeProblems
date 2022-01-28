@@ -8,14 +8,16 @@ namespace EmployeeWage
 {
     internal class Employee
     {
-        int Present = 0;
-        public void Attendance()
+        int Present = 0, TotalWorkingHrs = 8, WagePerHr = 20;
+        public void EmployeeWage()
         {
             Random random = new Random();
             int result = random.Next(0, 2);
             if (result == 0)
             {
                 Console.WriteLine("Employee is Present");
+                int Totalwage = TotalWorkingHrs * WagePerHr;
+                Console.WriteLine("Wage is " + Totalwage);
             }
             else
             {
